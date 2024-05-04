@@ -1,0 +1,18 @@
+version: '3.9'
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile.local
+    # command: >
+    #   sh -c "
+    #   python manage.py makemigrations &&
+    #   python manage.py migrate
+    #   "
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+    environment:
+      - DJANGO_SETTINGS_MODULE=core.settings.development
