@@ -43,7 +43,7 @@ SPECTACULAR_SETTINGS = {
     'DESCRIPTION': 'API for Classroom',
     'VERSION': '1.0.0',
     'SECURITY': [],
-    'SERVERS': [{'url': 'http://127.0.0.1:8000'}],
+    'SERVERS': [{'url': 'http://127.0.0.1:8000'}, {'url': 'http://100.27.141.92'}],
 }
 
 LOCAL_MIDDLEWARE = []

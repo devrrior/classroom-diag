@@ -4,7 +4,153 @@ info:
   version: 1.0.0
   description: API for Classroom
 paths:
-  /students/:
+  /api/schema/:
+    get:
+      operationId: schema_retrieve
+      description: |-
+        OpenApi3 schema for this API. Format can be selected via content negotiation.
+
+        - YAML: application/vnd.oai.openapi
+        - JSON: application/vnd.oai.openapi+json
+      parameters:
+      - in: query
+        name: format
+        schema:
+          type: string
+          enum:
+          - json
+          - yaml
+      - in: query
+        name: lang
+        schema:
+          type: string
+          enum:
+          - af
+          - ar
+          - ar-dz
+          - ast
+          - az
+          - be
+          - bg
+          - bn
+          - br
+          - bs
+          - ca
+          - ckb
+          - cs
+          - cy
+          - da
+          - de
+          - dsb
+          - el
+          - en
+          - en-au
+          - en-gb
+          - eo
+          - es
+          - es-ar
+          - es-co
+          - es-mx
+          - es-ni
+          - es-ve
+          - et
+          - eu
+          - fa
+          - fi
+          - fr
+          - fy
+          - ga
+          - gd
+          - gl
+          - he
+          - hi
+          - hr
+          - hsb
+          - hu
+          - hy
+          - ia
+          - id
+          - ig
+          - io
+          - is
+          - it
+          - ja
+          - ka
+          - kab
+          - kk
+          - km
+          - kn
+          - ko
+          - ky
+          - lb
+          - lt
+          - lv
+          - mk
+          - ml
+          - mn
+          - mr
+          - ms
+          - my
+          - nb
+          - ne
+          - nl
+          - nn
+          - os
+          - pa
+          - pl
+          - pt
+          - pt-br
+          - ro
+          - ru
+          - sk
+          - sl
+          - sq
+          - sr
+          - sr-latn
+          - sv
+          - sw
+          - ta
+          - te
+          - tg
+          - th
+          - tk
+          - tr
+          - tt
+          - udm
+          - ug
+          - uk
+          - ur
+          - uz
+          - vi
+          - zh-hans
+          - zh-hant
+      tags:
+      - schema
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/vnd.oai.openapi:
+              schema:
+                type: object
+                additionalProperties: {}
+            application/yaml:
+              schema:
+                type: object
+                additionalProperties: {}
+            application/vnd.oai.openapi+json:
+              schema:
+                type: object
+                additionalProperties: {}
+            application/json:
+              schema:
+                type: object
+                additionalProperties: {}
+          description: ''
+  /api/students/:
     get:
       operationId: students_list
       tags:
@@ -49,7 +195,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Student'
           description: ''
-  /students/{id}/:
+  /api/students/{id}/:
     get:
       operationId: students_retrieve
       parameters:
@@ -157,7 +303,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /subjects/:
+  /api/subjects/:
     get:
       operationId: subjects_list
       tags:
@@ -202,7 +348,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Subject'
           description: ''
-  /subjects/{id}/:
+  /api/subjects/{id}/:
     get:
       operationId: subjects_retrieve
       parameters:
@@ -310,7 +456,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /tutors/:
+  /api/tutors/:
     get:
       operationId: tutors_list
       tags:
@@ -355,7 +501,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Tutor'
           description: ''
-  /tutors/{id}/:
+  /api/tutors/{id}/:
     get:
       operationId: tutors_retrieve
       parameters:
@@ -580,3 +726,6 @@ components:
       type: apiKey
       in: cookie
       name: sessionid
+servers:
+- url: http://127.0.0.1:8000
+- url: http://100.27.141.92
