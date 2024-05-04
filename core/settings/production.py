@@ -6,7 +6,7 @@ env = environ.Env()
 
 environ.Env.read_env("production.env")
 
-SECRET_KEY = 'django-insecure-&oh(q-oq0nvy&n^tsgr)dlfsw%s6hbs0$_wa2auudtqx^l=yh-'
+SECRET_KEY = env("SECRET_KEY")
 DEBUG = False
 
 ALLOWED_HOSTS = ['*']
