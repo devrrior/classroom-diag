@@ -614,12 +614,17 @@ components:
     PatchedStudent:
       type: object
       properties:
+        id:
+          type: integer
+          readOnly: true
         name:
           type: string
         age:
           type: integer
         tutor:
           type: integer
+          readOnly: true
+          nullable: true
         subjects:
           type: array
           items:
@@ -635,6 +640,9 @@ components:
     PatchedSubject:
       type: object
       properties:
+        id:
+          type: integer
+          readOnly: true
         name:
           type: string
         created_at:
@@ -646,9 +654,16 @@ components:
     PatchedTutor:
       type: object
       properties:
+        id:
+          type: integer
+          readOnly: true
         name:
           type: string
           maxLength: 200
+        students:
+          type: array
+          items:
+            type: integer
         created_at:
           type: string
           format: date-time
@@ -660,12 +675,17 @@ components:
     Student:
       type: object
       properties:
+        id:
+          type: integer
+          readOnly: true
         name:
           type: string
         age:
           type: integer
         tutor:
           type: integer
+          readOnly: true
+          nullable: true
         subjects:
           type: array
           items:
@@ -681,6 +701,7 @@ components:
       required:
       - age
       - created_at
+      - id
       - name
       - subjects
       - tutor
@@ -688,6 +709,9 @@ components:
     Subject:
       type: object
       properties:
+        id:
+          type: integer
+          readOnly: true
         name:
           type: string
         created_at:
@@ -698,14 +722,22 @@ components:
           format: date-time
       required:
       - created_at
+      - id
       - name
       - updated_at
     Tutor:
       type: object
       properties:
+        id:
+          type: integer
+          readOnly: true
         name:
           type: string
           maxLength: 200
+        students:
+          type: array
+          items:
+            type: integer
         created_at:
           type: string
           format: date-time
@@ -716,7 +748,9 @@ components:
           readOnly: true
       required:
       - created_at
+      - id
       - name
+      - students
       - updated_at
   securitySchemes:
     basicAuth:
