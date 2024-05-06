@@ -619,8 +619,11 @@ components:
           readOnly: true
         name:
           type: string
+          maxLength: 200
         age:
           type: integer
+          maximum: 2147483647
+          minimum: -2147483648
         tutor:
           type: integer
           readOnly: true
@@ -645,12 +648,15 @@ components:
           readOnly: true
         name:
           type: string
+          maxLength: 200
         created_at:
           type: string
           format: date-time
+          readOnly: true
         updated_at:
           type: string
           format: date-time
+          readOnly: true
     PatchedTutor:
       type: object
       properties:
@@ -680,8 +686,11 @@ components:
           readOnly: true
         name:
           type: string
+          maxLength: 200
         age:
           type: integer
+          maximum: 2147483647
+          minimum: -2147483648
         tutor:
           type: integer
           readOnly: true
@@ -714,12 +723,15 @@ components:
           readOnly: true
         name:
           type: string
+          maxLength: 200
         created_at:
           type: string
           format: date-time
+          readOnly: true
         updated_at:
           type: string
           format: date-time
+          readOnly: true
       required:
       - created_at
       - id
